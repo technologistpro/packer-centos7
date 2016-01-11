@@ -11,7 +11,6 @@ To build all the boxes, you will need Packer and VMware Fusion installed. You wi
 
 # Creating the boxes
 
-Export ISO_URL to the location of the installation ISO
 Run packer with template.json
 Add the box to Vagrant
 Build VMs
