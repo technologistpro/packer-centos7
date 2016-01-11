@@ -1,6 +1,12 @@
 {
+  "variables": {
+    "vm_name": "centos-7.1-vmware",
+    "iso_url": "{{env `ISO_URL`}}",
+    "iso_sha256": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284"
+  },
   "builders": [
     {
+      "headless": true,
       "type": "vmware-iso",
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
@@ -9,11 +15,11 @@
       "disk_size": 8192,
       "guest_os_type": "centos-64",
       "http_directory": "http",
-      "iso_checksum": "783eef50e1fb91c78901d0421d8114a29b998478",
-      "iso_checksum_type": "sha1",
-      "iso_url": "file:///Users/jgallo/Documents/iso/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum_type": "sha256",
+      "iso_checksum": "{{user `iso_sha256`}}",
       "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_private_key_file": "vagrant_rsa",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
@@ -34,10 +40,10 @@
         "vmware-iso": {
           "scripts": [
             "scripts/base.sh",
-            "scripts/vagrant.sh",
             "scripts/vmware.sh",
             "scripts/hgfs.sh",
-            "scripts/cleanup.sh"
+            "scripts/cleanup.sh",
+            "scripts/zerodisk.sh"
           ]
         }
       }
