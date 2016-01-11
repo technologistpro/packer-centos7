@@ -1,1 +1,0 @@
-# packer build -var 'iso_url=/Users/jgallo/Documents/iso/CentOS-7-x86_64-Minimal-1511.iso' -only=vmware-iso template.json
