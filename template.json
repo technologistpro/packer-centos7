@@ -54,7 +54,7 @@
       "type": "vagrant",
       "override": {
         "vmware": {
-          "output": "centos-7-1-x64-vmware.box"
+          "output": "centos-7.1-x64-vmware.box"
         }
       }
     }
