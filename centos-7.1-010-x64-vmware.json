@@ -7,7 +7,7 @@
       "providers": [
         {
           "name": "vmware_desktop",
-          "url": "http://vagrantcloud.cpg.org/vagrant/boxes/centos-7.1-010-x64-vmware.box",
+          "url": "http://vagrantcloud.example.com/vagrant/boxes/centos-7.1-010-x64-vmware.box",
           "checksum_type": "sha1",
           "checksum": "c2d594d5a89b4a17c88dd604cb8d8a83f0751bd3"
         }
