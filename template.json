@@ -2,7 +2,16 @@
   "variables": {
     "vm_name": "centos-7.1-vmware",
     "iso_url": "{{env `ISO_URL`}}",
-    "iso_sha256": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284"
+    "iso_sha256": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
+    "vm_host": "{{ user `vm_host` }}",
+    "vm_user": "{{ user `vm_user` }}",
+    "vm_pass": "{{ env `vm_pass` }}",
+    "vm_dc":   "{{ user `vm_dc` }}",
+    "vm_cluster": "{{user `vm_cluster`}}",
+    "vm_datastore": "{{user `vm_datastore`}}",
+    "vm_folder": "{{user `vm_folder`}}",
+    "vm_name": "{{user `vm_name`}}", 
+    "vm_network": "{{user `vm_network`}}"
   },
   "builders": [
     {
@@ -57,6 +66,20 @@
           "output": "centos-7.1-x64-vmware.box"
         }
       }
+    },
+    {
+      "type": "vsphere",
+      "host": "{{user `vm_host`}}",
+      "username": "{{user `vm_user`}}",
+      "password": "{{user `vm_pass`}}",
+      "datacenter": "{{user `vm_dc`}}",
+      "cluster": "{{user `vm_cluster`}}",
+      "resource_pool": " ",
+      "datastore": "{{user `vm_datastore`}}",
+      "vm_folder": "{{user `vm_folder`}}",
+      "vm_name": "{{user `vm_name`}}", 
+      "vm_network": "{{user `vm_network`}}",
+      "insecure" : "true"
     }
   ]
 }
