@@ -17,6 +17,7 @@ Build VMs
 
 # Example
 
+```
 $ packer build \
 > -var ‘iso_url=/Users/john/iso/CentOS-7-x86_64-Minimal-1511.iso’ \
 > -var ‘vm_host=vc.example.com’ \
@@ -29,7 +30,7 @@ $ packer build \
 > -var ‘vm_name=centos71’ \
 > -var ‘vm_network=dvs-net1’ \
 > -only=vmware-iso template.json
-
+```
 
 $ vagrant box add --name centos7 centos-7-1-x64-vmware.box
 
